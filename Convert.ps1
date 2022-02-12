@@ -4,7 +4,6 @@ $SoundArray = New-Object System.Collections.ArrayList
 for ($Word = $WordCount; $Word--)
 {
     ((ForEach-Object{ Get-Random -Minimum 1 -Maximum 11 } | Where-Object{$_ -ne $prev} | ForEach-Object{$prev = $_; $SoundArray.Add("file './mp3/" + "$_" + ".mp3'") }))
-    $SoundArray.Add("file './mp3/silence.mp3'")
 }
 
 $SoundArray | Out-File -Append .\TempList.txt -Encoding ASCII
