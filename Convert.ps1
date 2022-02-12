@@ -9,6 +9,7 @@ for ($Word = $WordCount; $Word--)
 
 $SoundArray | Out-File -Append .\TempList.txt -Encoding ASCII
 
+#Edit this to just 'ffmpeg -f concat -safe 0 -i ./TempList.txt -c copy output.mp3' if you have ffmpeg in your system path...
 .\ffmpeg.exe -f concat -safe 0 -i ./TempList.txt -c copy output.mp3
 
 Remove-Item .\TempList.txt
